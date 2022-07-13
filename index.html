@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>QR SCANNER</title>
+</head>
+<body>
+    <h1>Scanner QR</h1>
+    <div>
+        <canvas id="canvas"></canvas>
+        <p>Link Website: *enter to submit</p>
+        <input placeholder="contoh: pabobernando.xyz" id="qrInput" onchange="generatorQR()">
+    </div>
+
+    <script src="node_modules/qrcode/build/qrcode.js"></script>
+    <script>
+        function generatorQR() {
+            let canvas = document.getElementById("canvas")
+            let qrInput = document.getElementById("qrInput")
+
+            QRCode.toCanvas(canvas, qrInput.value, (err) => {
+            if (err) console.log(err)
+            console.log("berhasil")
+            })
+            console.log("swipp")
+        }
+    </script>
+</body>
+</html>
